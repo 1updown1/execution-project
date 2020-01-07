@@ -1,0 +1,52 @@
+{
+	"name": "touchpal-run-project",
+	"displayName": "touchpal-run-project",
+	"description": "start servce or build project in dir 'src'",
+	"version": "0.0.2",
+	"publisher": "updown",
+	"engines": {
+		"vscode": "^1.41.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:extension.touchpalBuild"
+	],
+	"main": "./extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension.touchpalBuild",
+				"title": "打包项目"
+			}
+		],
+		"menus": {
+			"explorer/context": [
+				{
+					"command": "extension.touchpalBuild",
+					"when": "resourceExtname == .js",
+					"group": "2_workspace"
+				}
+			]
+		}
+	},
+	"scripts": {
+		"test": "node ./test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^5.2.7",
+		"@types/node": "^12.11.7",
+		"@types/vscode": "^1.41.0",
+		"eslint": "^6.6.0",
+		"glob": "^7.1.5",
+		"mocha": "^6.2.2",
+		"typescript": "^3.6.4",
+		"vscode-test": "^1.2.2"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/1updown1/execution-project.git"
+	}
+}
