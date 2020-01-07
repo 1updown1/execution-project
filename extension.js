@@ -30,7 +30,8 @@ function activate(context) {
 					file = file.replace(jsPathReg, `$1${path.join(...pathSep.slice(srcPathIndex + 1))}`);
 				}else{
 					options.flag = 'a';
-					file = `\n${jsPathName}=${path.join(...pathSep.slice(srcPathIndex + 1))}`;
+					if(file != '') file += '\n';
+					file = `${jsPathName}=${path.join(...pathSep.slice(srcPathIndex + 1))}`;
 				}
 				fs.writeFile(`${projectPath}/${envFileName}`, file, options, err => {
 					if (err) {
@@ -56,7 +57,6 @@ function activate(context) {
 }
 exports.activate = activate;
 
-// this method is called when your extension is deactivated
 function deactivate() {}
 
 module.exports = {
