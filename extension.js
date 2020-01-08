@@ -35,20 +35,29 @@ function activate(context) {
 				}
 				fs.writeFile(`${projectPath}/${envFileName}`, file, options, err => {
 					if (err) {
-						vscode.window.showInformationMessage(`写入${envFileName}文件失败`);
+						vscode.window.showErrorMessage(`写入${envFileName}文件失败`);
 						return;
 					}
-					vscode.tasks.executeTask(new vscode.Task(
-						{ type: 'touchpalBuild' },
-						vscode.TaskScope.Global,
-						'project build',
-						'npm',
-						new vscode.ShellExecution(`cd /${projectPath} && npm run build`)
-					))
+					vscode.window.showInformationMessage('项目运行方式', '本地', '打包').then(value => {
+						if(!value) return;
+						let command = '';
+						if(value == '本地'){
+							command = 'start';
+						}else{
+							command = 'build';
+						}
+						vscode.tasks.executeTask(new vscode.Task(
+							{ type: 'touchpalBuild' },
+							vscode.TaskScope.Global,
+							'project build',
+							'npm',
+							new vscode.ShellExecution(`cd /${projectPath} && npm run ${command}`)
+						))
+					});
 				})
 			})
 		}else{
-			vscode.window.showInformationMessage('请选择theia_web_page项目进行打包');
+			vscode.window.showWarningMessage('请选择theia_web_page项目进行打包');
 		}
 		
 	});

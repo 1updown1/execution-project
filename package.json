@@ -2,7 +2,7 @@
 	"name": "touchpal-run-project",
 	"displayName": "touchpal-run-project",
 	"description": "start servce or build project in dir 'src'",
-	"version": "0.0.2",
+	"version": "0.1.1",
 	"publisher": "updown",
 	"engines": {
 		"vscode": "^1.41.0"
@@ -18,7 +18,7 @@
 		"commands": [
 			{
 				"command": "extension.touchpalBuild",
-				"title": "打包项目"
+				"title": "运行项目"
 			}
 		],
 		"menus": {

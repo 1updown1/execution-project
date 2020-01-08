@@ -8,6 +8,10 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 - Initial release
 
-## [0.0.1]
+## [0.0.2]
 
 - fix RegExp bug
+
+## [0.1.1]
+
+- add selection npm command
