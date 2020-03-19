@@ -2,7 +2,7 @@
 	"name": "touchpal-run-project",
 	"displayName": "touchpal-run-project",
 	"description": "start servce or build project in dir 'src'",
-	"version": "0.1.1",
+	"version": "0.2.1",
 	"publisher": "updown",
 	"engines": {
 		"vscode": "^1.41.0"
