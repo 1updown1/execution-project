@@ -10,6 +10,8 @@ const jsPathReg = new RegExp(`\\b(${jsPathName}=).*`);
  * @param {vscode.ExtensionContext} context
  */
 function activate(context) {
+	const runningTask = {};
+	let taskId = 1;
 	let disposable = vscode.commands.registerCommand('extension.touchpalBuild', function (uri) {
 
 		let pathSep = uri.fsPath.split(path.sep);
@@ -40,19 +42,27 @@ function activate(context) {
 					}
 					vscode.window.showInformationMessage('项目运行方式', '本地', '打包').then(value => {
 						if(!value) return;
+						let id = 0;
 						let command = '';
 						if(value == '本地'){
 							command = 'start';
+							if (!runningTask[uri.fsPath]){
+								id = ++taskId;
+								runningTask[uri.fsPath] = id;
+							}else{
+								id = runningTask[uri.fsPath];
+							}
 						}else{
 							command = 'build';
+							id = ++taskId;
 						}
 						vscode.tasks.executeTask(new vscode.Task(
-							{ type: 'touchpalBuild' },
+							{ type: 'touchpalBuild', id },
 							vscode.TaskScope.Global,
 							'project build',
 							'npm',
 							new vscode.ShellExecution(`cd /${projectPath} && npm run ${command}`)
-						))
+						));
 					});
 				})
 			})
