@@ -15,3 +15,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ## [0.1.1]
 
 - add selection npm command
+
+## [0.2.1]
+
+- optimize re-use terminal strategy, check task is running and open this task tab when run local project
