@@ -57,7 +57,7 @@ function activate(context) {
 							id = ++taskId;
 						}
 						vscode.tasks.executeTask(new vscode.Task(
-							{ type: 'touchpalBuild', id },
+							{ type: 'BuildProject', id },
 							vscode.TaskScope.Global,
 							'project build',
 							'npm',
