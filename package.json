@@ -11,20 +11,20 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:extension.touchpalBuild"
+		"onCommand:extension.BuildProject"
 	],
 	"main": "./extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "extension.touchpalBuild",
+				"command": "extension.BuildProject",
 				"title": "运行项目"
 			}
 		],
 		"menus": {
 			"explorer/context": [
 				{
-					"command": "extension.touchpalBuild",
+					"command": "extension.BuildProject",
 					"when": "resourceExtname == .js",
 					"group": "2_workspace"
 				}

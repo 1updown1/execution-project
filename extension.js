@@ -12,7 +12,7 @@ const jsPathReg = new RegExp(`\\b(${jsPathName}=).*`);
 function activate(context) {
 	const runningTask = {};
 	let taskId = 1;
-	let disposable = vscode.commands.registerCommand('extension.touchpalBuild', function (uri) {
+	let disposable = vscode.commands.registerCommand('extension.BuildProject', function (uri) {
 
 		let pathSep = uri.fsPath.split(path.sep);
 
